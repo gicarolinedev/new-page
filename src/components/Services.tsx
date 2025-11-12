@@ -1,24 +1,70 @@
 import { Palette, Code, Search } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import profileImg from "@/assets/profile.jpg";
 
 const Services = () => {
   return (
-    <section id="sobre" className="py-20 bg-secondary/30">
+    <section id="sobre" className="py-20 bg-black relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-4">
-          <p className="text-sm text-primary uppercase tracking-wider mb-2">SERVICES</p>
-          <h2 className="font-serif text-5xl md:text-6xl font-bold mb-2">
-            Web Developer
-          </h2>
-          <p className="font-serif text-3xl md:text-4xl text-primary italic">
-            & Advertising
+        {/* Vertical Text */}
+        <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block">
+          <p className="font-serif text-5xl tracking-widest text-foreground -rotate-90 origin-center whitespace-nowrap">
+            OBJECTIVE.
           </p>
         </div>
+
+        <div className="max-w-5xl mx-auto relative">
+          {/* Profile Image */}
+          <div className="flex justify-center mb-8">
+            <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-primary">
+              <img 
+                src={profileImg} 
+                alt="Profile" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Title with decorative lines */}
+          <div className="relative mb-12 min-h-[200px]">
+            {/* Left description and line */}
+            <div className="absolute left-0 top-8 hidden lg:flex flex-col items-start w-48">
+              <p className="text-sm text-foreground mb-2 font-serif">description</p>
+              <div className="w-40 h-px bg-foreground mb-4"></div>
+              <div className="text-xs text-muted-foreground space-y-1">
+                <p>Estudante de Análise e</p>
+                <p>Desenvolvimento de Sistemas</p>
+                <p className="text-primary">2024 - 2026</p>
+              </div>
+            </div>
+
+            {/* Center Title */}
+            <div className="text-center px-4 lg:px-56">
+              <h2 className="font-serif text-5xl md:text-7xl font-bold mb-2">
+                Web Developer
+              </h2>
+              <p className="font-serif text-3xl md:text-5xl text-primary italic">
+                & Advertising
+              </p>
+            </div>
+
+            {/* Right description and line */}
+            <div className="absolute right-0 top-8 hidden lg:flex flex-col items-end w-48">
+              <p className="text-sm text-foreground mb-2 font-serif">description</p>
+              <div className="w-40 h-px bg-foreground mb-4"></div>
+              <div className="text-xs text-muted-foreground text-right space-y-1">
+                <p>Estudante de Publicidade</p>
+                <p>e Propaganda</p>
+                <p className="text-primary">2024 - 2028</p>
+              </div>
+            </div>
+          </div>
         
-        <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-16">
-          A passionate professional driven by social impact and deeply believes in 
-          technology as a catalyst for meaningful change.
-        </p>
+          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-16">
+            a brown skin girl driven by social impact and <span className="text-foreground font-semibold">deeply</span> believe in 
+            technology as a catalyst for meaningful change
+          </p>
+        </div>
         
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <ServiceCard 

@@ -22,36 +22,42 @@ const Portfolio = () => {
             image={project1}
             category="WEB DESIGN"
             title="Brand Identity"
+            orientation="portrait"
           />
           
           <ProjectCard 
             image={project2}
             category="PRINT DESIGN"
             title="Editorial Layout"
+            orientation="landscape"
           />
           
           <ProjectCard 
             image={project3}
             category="PHOTOGRAPHY"
             title="Photography Series"
+            orientation="portrait"
           />
           
           <ProjectCard 
             image={project4}
             category="WEB DESIGN"
             title="Digital Experience"
+            orientation="landscape"
           />
           
           <ProjectCard 
             image={project5}
             category="CREATIVE"
             title="Content Design"
+            orientation="portrait"
           />
           
           <ProjectCard 
             image={project6}
             category="CONTENT"
             title="Product Packaging"
+            orientation="landscape"
           />
         </div>
       </div>
@@ -62,15 +68,19 @@ const Portfolio = () => {
 const ProjectCard = ({ 
   image, 
   category, 
-  title 
+  title,
+  orientation = "landscape"
 }: { 
   image: string; 
   category: string; 
   title: string;
+  orientation?: "portrait" | "landscape";
 }) => {
+  const aspectRatio = orientation === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]";
+  
   return (
     <Card className="group overflow-hidden bg-card border-border hover:border-primary/50 transition-all cursor-pointer">
-      <div className="aspect-[4/3] overflow-hidden">
+      <div className={`${aspectRatio} overflow-hidden`}>
         <img 
           src={image} 
           alt={title}
