@@ -8,11 +8,11 @@ import project6 from "@/assets/project6.jpg";
 
 const Portfolio = () => {
   return (
-    <section id="projetos" className="py-20">
-      <div className="container mx-auto px-4">
+    <section id="projetos" className="py-16">
+      <div className="container mx-auto px-2">
         <div className="text-center mb-16">
           <h2 className="font-serif text-5xl md:text-6xl font-bold mb-4">
-            Portfolio
+            SEE MY PROJECTS<span className="text-accent">...</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto"></div>
         </div>
@@ -22,42 +22,36 @@ const Portfolio = () => {
             image={project1}
             category="WEB DESIGN"
             title="Brand Identity"
-            orientation="portrait"
           />
           
           <ProjectCard 
             image={project2}
             category="PRINT DESIGN"
             title="Editorial Layout"
-            orientation="landscape"
           />
           
           <ProjectCard 
             image={project3}
             category="PHOTOGRAPHY"
             title="Photography Series"
-            orientation="portrait"
           />
           
           <ProjectCard 
             image={project4}
             category="WEB DESIGN"
             title="Digital Experience"
-            orientation="landscape"
           />
           
           <ProjectCard 
             image={project5}
             category="CREATIVE"
             title="Content Design"
-            orientation="portrait"
           />
           
           <ProjectCard 
             image={project6}
             category="CONTENT"
             title="Product Packaging"
-            orientation="landscape"
           />
         </div>
       </div>
@@ -68,15 +62,13 @@ const Portfolio = () => {
 const ProjectCard = ({ 
   image, 
   category, 
-  title,
-  orientation = "landscape"
+  title
 }: { 
   image: string; 
   category: string; 
   title: string;
-  orientation?: "portrait" | "landscape";
 }) => {
-  const aspectRatio = orientation === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]";
+  const aspectRatio = "aspect-[3/4]"; // retrato padronizado
   
   return (
     <Card className="group overflow-hidden bg-card border-border hover:border-primary/50 transition-all cursor-pointer">
