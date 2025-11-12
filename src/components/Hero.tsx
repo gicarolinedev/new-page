@@ -1,79 +1,93 @@
-import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
-import profileImg from "@/assets/profile.jpg";
+import { Download, Palette, Code, Figma, Pen } from "lucide-react";
+import { Button } from "./ui/button";
+import { Progress } from "./ui/progress";
+import profileSmall from "@/assets/profile.jpg";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text content */}
-          <div className="space-y-6">
-            <h1 className="font-serif text-7xl md:text-8xl font-bold">
-              Hello<span className="text-primary">.</span>
-            </h1>
-            
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-0.5 bg-primary"></div>
-              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary">
-                <img 
-                  src={profileImg} 
-                  alt="Profile" 
-                  className="w-full h-full object-cover"
-                />
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      {/* Decorative elements */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+          {/* Left content */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="space-y-6">
+              <h1 className="text-7xl sm:text-8xl lg:text-9xl font-serif font-bold text-foreground">
+                Hello<span className="text-accent">.</span>
+              </h1>
+              <div className="flex items-center space-x-6">
+                <div className="w-16 h-0.5 bg-accent" />
+                <div className="flex items-center space-x-4">
+                  <img 
+                    src={profileSmall}
+                    alt="Profile"
+                    className="w-20 h-20 rounded-full object-cover border-2 border-accent shadow-lg"
+                  />
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-foreground">
+                    I'm <span className="text-accent">Your Name</span>
+                  </h2>
+                </div>
               </div>
             </div>
             
-            <h2 className="text-2xl md:text-3xl">
-              I'm <span className="text-primary font-serif">Your Name</span>
-            </h2>
-            
-            <p className="text-muted-foreground leading-relaxed max-w-md">
+            <p className="text-muted-foreground text-lg max-w-xl">
               A passionate creative professional specializing in design and development. 
               Transforming ideas into beautiful digital experiences.
             </p>
             
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2">
-              <Download className="w-4 h-4" />
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-background font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <Download className="mr-2 h-5 w-5" />
               Download CV
             </Button>
           </div>
-          
-          {/* Right side - Skills */}
-          <div className="space-y-8">
-            <h3 className="font-serif text-3xl mb-8">My Skills.</h3>
+
+          {/* Right skills */}
+          <div className="space-y-6 animate-fade-in">
+            <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
+              My Skills<span className="text-accent">.</span>
+            </h3>
             
-            <div className="space-y-6">
-              <SkillBar name="Photoshop" percentage={95} />
-              <SkillBar name="JavaScript" percentage={88} />
-              <SkillBar name="Figma" percentage={92} />
-              <SkillBar name="Illustrator" percentage={90} />
-              <SkillBar name="HTML/CSS" percentage={95} />
+            <div className="space-y-5">
+              {[
+                { name: "Photoshop", level: 95, icon: Palette },
+                { name: "JavaScript", level: 88, icon: Code },
+                { name: "Figma", level: 92, icon: Figma },
+                { name: "Illustrator", level: 90, icon: Pen },
+                { name: "HTML/CSS", level: 95, icon: Code },
+              ].map((skill, index) => (
+                <div
+                  key={skill.name}
+                  className="group"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center transition-all duration-300 group-hover:bg-accent/20">
+                        <skill.icon className="w-4 h-4 text-accent" />
+                      </div>
+                      <span className="text-sm font-medium text-foreground">
+                        {skill.name}
+                      </span>
+                    </div>
+                    <span className="text-accent font-semibold text-sm">{skill.level}%</span>
+                  </div>
+                  <Progress 
+                    value={skill.level} 
+                    className="h-1.5 bg-secondary/50"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
-
-const SkillBar = ({ name, percentage }: { name: string; percentage: number }) => {
-  return (
-    <div className="space-y-2">
-      <div className="flex justify-between items-center">
-        <span className="text-sm text-muted-foreground flex items-center gap-2">
-          <span className="text-primary">⚙</span>
-          {name}
-        </span>
-        <span className="text-sm text-primary">{percentage}%</span>
-      </div>
-      <div className="h-1 bg-secondary rounded-full overflow-hidden">
-        <div 
-          className="h-full bg-primary rounded-full transition-all duration-1000"
-          style={{ width: `${percentage}%` }}
-        ></div>
-      </div>
-    </div>
   );
 };
 

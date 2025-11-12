@@ -13,9 +13,9 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto relative">
+        <div className="max-w-7xl mx-auto relative">
           {/* Profile Image */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-12">
             <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-primary">
               <img 
                 src={profileImg} 
@@ -26,36 +26,38 @@ const Services = () => {
           </div>
 
           {/* Title with decorative lines */}
-          <div className="relative mb-12 min-h-[200px]">
-            {/* Left description and line */}
-            <div className="absolute left-0 top-8 hidden lg:flex flex-col items-start w-48">
-              <p className="text-sm text-foreground mb-2 font-serif">description</p>
-              <div className="w-40 h-px bg-foreground mb-4"></div>
-              <div className="text-xs text-muted-foreground space-y-1">
-                <p>Estudante de Análise e</p>
-                <p>Desenvolvimento de Sistemas</p>
-                <p className="text-primary">2024 - 2026</p>
+          <div className="relative mb-16">
+            <div className="flex items-center justify-center gap-8 lg:gap-16">
+              {/* Left description and line */}
+              <div className="hidden lg:flex flex-col items-end w-56">
+                <p className="text-sm text-foreground mb-3 font-serif">description</p>
+                <div className="w-full h-[2px] bg-foreground mb-4"></div>
+                <div className="text-xs text-muted-foreground text-right space-y-1">
+                  <p>Estudante de Análise e</p>
+                  <p>Desenvolvimento de Sistemas</p>
+                  <p className="text-primary mt-2">2024 - 2026</p>
+                </div>
               </div>
-            </div>
 
-            {/* Center Title */}
-            <div className="text-center px-4 lg:px-56">
-              <h2 className="font-serif text-5xl md:text-7xl font-bold mb-2">
-                Web Developer
-              </h2>
-              <p className="font-serif text-3xl md:text-5xl text-primary italic">
-                & Advertising
-              </p>
-            </div>
+              {/* Center Title */}
+              <div className="text-center">
+                <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-2 whitespace-nowrap">
+                  Web Developer
+                </h2>
+                <p className="font-serif text-2xl md:text-4xl lg:text-5xl text-primary italic">
+                  & Advertising
+                </p>
+              </div>
 
-            {/* Right description and line */}
-            <div className="absolute right-0 top-8 hidden lg:flex flex-col items-end w-48">
-              <p className="text-sm text-foreground mb-2 font-serif">description</p>
-              <div className="w-40 h-px bg-foreground mb-4"></div>
-              <div className="text-xs text-muted-foreground text-right space-y-1">
-                <p>Estudante de Publicidade</p>
-                <p>e Propaganda</p>
-                <p className="text-primary">2024 - 2028</p>
+              {/* Right description and line */}
+              <div className="hidden lg:flex flex-col items-start w-56">
+                <p className="text-sm text-foreground mb-3 font-serif">description</p>
+                <div className="w-full h-[2px] bg-foreground mb-4"></div>
+                <div className="text-xs text-muted-foreground space-y-1">
+                  <p>Estudante de Publicidade</p>
+                  <p>e Propaganda</p>
+                  <p className="text-primary mt-2">2024 - 2028</p>
+                </div>
               </div>
             </div>
           </div>
