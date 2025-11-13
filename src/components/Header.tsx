@@ -68,7 +68,7 @@ const Header = () => {
           </a>
 
           <a
-            href="https://medium.com/@SEU_USUARIO"
+            href="https://medium.com/@gicarolinecstd"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Medium"
