@@ -36,6 +36,7 @@ const Hero = () => {
               </div>
             </div>
 
+{/* DESCRIÇÃO INICIAL */}
             <p className="text-muted-foreground text-lg max-w-xl font-serif">
               a brown skin girl driven by <span className="text-accent">social impact</span> and deeply believe in
               technology as a catalyst for meaningful change.
@@ -44,7 +45,9 @@ const Hero = () => {
   <a href="/public/CV GIOVANNA CAROLINE.pdf" download>
             <Button
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-background font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className=" mt-5 bg-accent hover:bg-accent/90 text-background font-semibold 
+              shadow-lg hover:shadow-xl transition-all 
+              duration-300 hover:scale-105"
             >
               <Download className="mr-2 h-5 w-5" />
               Download CV
@@ -52,7 +55,7 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* Right skills */}
+          {/* SKILLS COM LEVELS*/}
           <div className="space-y-6 animate-fade-in">
             <h3 className="text-2xl font-serif font-bold text-foreground mb-6">
               My Skills<span className="text-accent">.</span>
@@ -73,7 +76,8 @@ const Hero = () => {
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center transition-all duration-300 group-hover:bg-accent/20">
+                      <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center 
+                      transition-all duration-300 group-hover:bg-accent/20">
                         <skill.icon className="w-4 h-4 text-accent" />
                       </div>
                       <span className="text-sm font-medium text-foreground">

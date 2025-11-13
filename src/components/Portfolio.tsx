@@ -17,23 +17,24 @@ const Portfolio = () => {
           <div className="w-24 h-1 bg-primary mx-auto"></div>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
+        <div className="font-serif grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
           <ProjectCard 
             image={project1}
-            category="WEB DESIGN"
-            title="Brand Identity"
+            category="BRANDING & PHOTOSHOOT"
+            title="Ensaio Fotográfico"
+                href="/project1" // rota interna que redireciona para o projeto
           />
           
           <ProjectCard 
             image={project2}
-            category="PRINT DESIGN"
-            title="Editorial Layout"
+            category="IA CREATION DESIGN & PUBLICITY"
+            title="Publicidade Fictítia para Natura EKOS com IA + Photoshop"
           />
           
           <ProjectCard 
             image={project3}
-            category="PHOTOGRAPHY"
-            title="Photography Series"
+            category="DESIGN & PHOTOSHOP"
+            title="Flyer Fictício Para Trancistas Com Photoshop"
           />
           
           <ProjectCard 
@@ -68,7 +69,7 @@ const ProjectCard = ({
   category: string; 
   title: string;
 }) => {
-  const aspectRatio = "aspect-[3/4]"; // retrato padronizado
+  const aspectRatio = "aspect-[4/5]"; // retrato padronizado
   
   return (
     <Card className="group overflow-hidden bg-card border-border hover:border-primary/50 transition-all cursor-pointer">
