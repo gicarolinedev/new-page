@@ -42,7 +42,7 @@ const Hero = () => {
               technology as a catalyst for meaningful change.
             </p>
 {/*BOTÃO DE DOWNLOAD FUNCIONAL*/}
-  <a href="/public/CV GIOVANNA CAROLINE.pdf" download>
+  <a href="/CV GIOVANNA CAROLINE.pdf" download>
             <Button
               size="lg"
               className=" mt-5 bg-accent hover:bg-accent/90 text-background font-semibold 
