@@ -1,3 +1,5 @@
+/*fontes importadas*/
+
 @font-face {
   font-family: "Calora";
   src: url("/public/Calora.otf") format("opentype");
@@ -9,6 +11,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* hover fotos */
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #0000ff; /* cor das setas */
+}
+
+/* aumentar tamanho opcionalmente */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 10px;
+}
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.

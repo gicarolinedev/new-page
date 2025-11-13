@@ -1,4 +1,10 @@
 import { Card } from "@/components/ui/card";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import project1 from "@/assets/project1.jpg";
 import project2 from "@/assets/project2.jpg";
 import project3 from "@/assets/project3.jpg";
@@ -7,6 +13,40 @@ import project5 from "@/assets/project5.jpg";
 import project6 from "@/assets/project6.jpg";
 
 const Portfolio = () => {
+  const projects = [
+    {
+      image: project1,
+      category: "BRANDING & PHOTOSHOOT",
+      title: "Ensaio Fotográfico",
+      href: "/project1",
+    },
+    {
+      image: project2,
+      category: "IA CREATION DESIGN & PUBLICITY",
+      title: "Publicidade Fictítia para Natura EKOS com IA + Photoshop",
+    },
+    {
+      image: project3,
+      category: "DESIGN & PHOTOSHOP",
+      title: "Flyer Fictício Para Trancistas Com Photoshop",
+    },
+    {
+      image: project4,
+      category: "IA CREATION DESIGN & PUBLICITY",
+      title: "Publicidade Fictícia para Sallve",
+    },
+    {
+      image: project5,
+      category: "CREATIVE",
+      title: "Content Design",
+    },
+    {
+      image: project6,
+      category: "CONTENT",
+      title: "Product Packaging",
+    },
+  ];
+
   return (
     <section id="projetos" className="py-16">
       <div className="container mx-auto px-2">
@@ -16,72 +56,58 @@ const Portfolio = () => {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto"></div>
         </div>
-        
-        <div className="font-serif grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto">
-          <ProjectCard 
-            image={project1}
-            category="BRANDING & PHOTOSHOOT"
-            title="Ensaio Fotográfico"
-                href="/project1" // rota interna que redireciona para o projeto
-          />
-          
-          <ProjectCard 
-            image={project2}
-            category="IA CREATION DESIGN & PUBLICITY"
-            title="Publicidade Fictítia para Natura EKOS com IA + Photoshop"
-          />
-          
-          <ProjectCard 
-            image={project3}
-            category="DESIGN & PHOTOSHOP"
-            title="Flyer Fictício Para Trancistas Com Photoshop"
-          />
-          
-          <ProjectCard 
-            image={project4}
-            category="WEB DESIGN"
-            title="Digital Experience"
-          />
-          
-          <ProjectCard 
-            image={project5}
-            category="CREATIVE"
-            title="Content Design"
-          />
-          
-          <ProjectCard 
-            image={project6}
-            category="CONTENT"
-            title="Product Packaging"
-          />
+
+        {/* Carrossel */}
+        <div className="relative max-w-7xl mx-auto">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="pb-12" // adiciona espaço pros dots
+          >
+            {projects.map((p, i) => (
+              <SwiperSlide key={i}>
+                <ProjectCard {...p} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
   );
 };
 
-const ProjectCard = ({ 
-  image, 
-  category, 
-  title
-}: { 
-  image: string; 
-  category: string; 
+const ProjectCard = ({
+  image,
+  category,
+  title,
+}: {
+  image: string;
+  category: string;
   title: string;
 }) => {
-  const aspectRatio = "aspect-[4/5]"; // retrato padronizado
-  
+  const aspectRatio = "aspect-[4/5]";
   return (
-    <Card className="group overflow-hidden bg-card border-border hover:border-primary/50 transition-all cursor-pointer">
+    <Card className="group overflow-hidden bg-card border-border 
+    hover:border-primary/50 transition-all cursor-pointer">
       <div className={`${aspectRatio} overflow-hidden`}>
-        <img 
-          src={image} 
+        <img
+          src={image}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-110 
+          transition-transform duration-500"
         />
       </div>
       <div className="p-6">
-        <p className="text-xs text-primary uppercase tracking-wider mb-2">{category}</p>
+        <p className="text-xs text-primary uppercase tracking-wider mb-2">
+          {category}
+        </p>
         <h3 className="font-serif text-xl font-bold">{title}</h3>
       </div>
     </Card>
