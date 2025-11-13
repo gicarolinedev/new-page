@@ -54,7 +54,7 @@ const Header = () => {
             aria-label="GitHub"
             className="hover:opacity-90"
           >
-            <img src="/public/github.png" alt="GitHub" width="35" height="35" />
+            <img src="/github.png" alt="GitHub" width="35" height="35" />
           </a>
 
           <a
@@ -64,7 +64,7 @@ const Header = () => {
             aria-label="LinkedIn"
             className="hover:opacity-90"
           >
-            <img src="/public/linkedin.png" alt="LinkedIn" width="35" height="35" />
+            <img src="/linkedin.png" alt="LinkedIn" width="35" height="35" />
           </a>
 
           <a
@@ -74,7 +74,7 @@ const Header = () => {
             aria-label="Medium"
             className="hover:opacity-90"
           >
-            <img src="/public/medium.png" alt="Medium" width="20" height="20" />
+            <img src="/medium.png" alt="Medium" width="20" height="20" />
           </a>
         </div>
       </div>
