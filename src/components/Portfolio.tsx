@@ -1,10 +1,13 @@
 import { Card } from "@/components/ui/card";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+// IMAGENS DE DESIGN
 import project1 from "@/assets/project1.jpg";
 import project2 from "@/assets/project2.jpg";
 import project3 from "@/assets/project3.jpg";
@@ -12,13 +15,18 @@ import project4 from "@/assets/project4.jpg";
 import project5 from "@/assets/project5.jpg";
 import project6 from "@/assets/project6.jpg";
 
+// IMAGENS DE PROGRAMAÇÃO
+import dev1 from "@/assets/dev1.jpg";
+import dev2 from "@/assets/dev2.jpg";
+import dev3 from "@/assets/dev3.jpg";
+
 const Portfolio = () => {
-  const projects = [
+  // PROJETOS DE DESIGN
+  const designProjects = [
     {
       image: project1,
       category: "BRANDING & PHOTOSHOOT",
       title: "Ensaio Fotográfico",
-      href: "/project1",
     },
     {
       image: project2,
@@ -47,9 +55,30 @@ const Portfolio = () => {
     },
   ];
 
+  // PROJETOS DE PROGRAMAÇÃO
+  const devProjects = [
+    {
+      image: dev1,
+      category: "FRONTEND DEVELOPMENT",
+      title: "Landing Page Moderna",
+    },
+    {
+      image: dev2,
+      category: "FULLSTACK",
+      title: "Sistema de Gestão Completo",
+    },
+    {
+      image: dev3,
+      category: "MOBILE",
+      title: "App de Tarefas em React Native",
+    },
+  ];
+
   return (
-    <section id="projetos" className="py-16">
-      <div className="container mx-auto px-2">
+    <section id="projetos" className="py-20">
+      <div className="container mx-auto px-4">
+
+        {/* Título */}
         <div className="text-center mb-16">
           <h2 className="font-serif text-5xl md:text-6xl font-bold mb-4">
             SEE MY PROJECTS<span className="text-accent">...</span>
@@ -57,29 +86,56 @@ const Portfolio = () => {
           <div className="w-24 h-1 bg-primary mx-auto"></div>
         </div>
 
-        {/* Carrossel */}
-        <div className="relative max-w-7xl mx-auto">
-          <Swiper
-            modules={[Navigation, Pagination]}
-            spaceBetween={20}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="pb-12"
-          >
-            {projects.map((p, i) => (
-              <SwiperSlide key={i}>
-                <ProjectCard {...p} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        {/* ABAS */}
+        <Tabs defaultValue="design" className="w-full">
+
+          <TabsList className="mx-auto flex justify-center mb-10 gap-4">
+            <TabsTrigger value="design" className="px-6 py-2 text-sm">
+              DESIGN
+            </TabsTrigger>
+            <TabsTrigger value="dev" className="px-6 py-2 text-sm">
+              PROGRAMAÇÃO
+            </TabsTrigger>
+          </TabsList>
+
+          {/* --- ABA: DESIGN --- */}
+          <TabsContent value="design">
+            <ProjectCarousel projects={designProjects} />
+          </TabsContent>
+
+          {/* --- ABA: PROGRAMAÇÃO --- */}
+          <TabsContent value="dev">
+            <ProjectCarousel projects={devProjects} />
+          </TabsContent>
+
+        </Tabs>
       </div>
     </section>
+  );
+};
+
+const ProjectCarousel = ({ projects }: { projects: any[] }) => {
+  return (
+    <div className="relative max-w-7xl mx-auto">
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        className="pb-12"
+      >
+        {projects.map((p, i) => (
+          <SwiperSlide key={i}>
+            <ProjectCard {...p} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 
@@ -99,7 +155,6 @@ const ProjectCard = ({
       className="group overflow-hidden bg-card border-border 
       hover:border-primary/50 transition-all cursor-pointer flex flex-col"
     >
-      {/* Imagem */}
       <div className={`${aspectRatio} overflow-hidden`}>
         <img
           src={image}
@@ -109,7 +164,6 @@ const ProjectCard = ({
         />
       </div>
 
-      {/* Container do texto com tamanho fixo */}
       <div className="p-6 h-32 flex flex-col justify-start">
         <p className="text-xs text-primary uppercase tracking-wider mb-2">
           {category}
