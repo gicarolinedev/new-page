@@ -69,7 +69,7 @@ const Portfolio = () => {
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="pb-12" // adiciona espaço pros dots
+            className="pb-12"
           >
             {projects.map((p, i) => (
               <SwiperSlide key={i}>
@@ -93,9 +93,13 @@ const ProjectCard = ({
   title: string;
 }) => {
   const aspectRatio = "aspect-[4/5]";
+
   return (
-    <Card className="group overflow-hidden bg-card border-border 
-    hover:border-primary/50 transition-all cursor-pointer">
+    <Card
+      className="group overflow-hidden bg-card border-border 
+      hover:border-primary/50 transition-all cursor-pointer flex flex-col"
+    >
+      {/* Imagem */}
       <div className={`${aspectRatio} overflow-hidden`}>
         <img
           src={image}
@@ -104,11 +108,16 @@ const ProjectCard = ({
           transition-transform duration-500"
         />
       </div>
-      <div className="p-6">
+
+      {/* Container do texto com tamanho fixo */}
+      <div className="p-6 h-32 flex flex-col justify-start">
         <p className="text-xs text-primary uppercase tracking-wider mb-2">
           {category}
         </p>
-        <h3 className="font-serif text-xl font-bold">{title}</h3>
+
+        <h3 className="font-serif text-xl font-bold leading-tight">
+          {title}
+        </h3>
       </div>
     </Card>
   );
