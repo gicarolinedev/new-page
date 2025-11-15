@@ -1,83 +1,81 @@
-// ...existing code...
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false); // fecha o menu no mobile
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-4 py-4 font-serif flex items-center justify-between">
-        {/* left spacer (keeps nav centered) */}
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        
+        {/* LOGO OU ESPAÇO ESQUERDO */}
         <div className="w-10" />
 
-        {/* center navigation */}
-        <nav className="flex items-center gap-8">
-          <Button
-            variant="ghost"
-            onClick={() => scrollToSection("home")}
-            className="text-muted-foreground hover:text-foreground"
-          >
+        {/* NAV DESKTOP */}
+        <nav className="hidden md:flex items-center gap-8 font-serif">
+          <Button variant="ghost" onClick={() => scrollToSection("home")}>
             HOME
           </Button>
-          <Button
-            variant="ghost"
-            onClick={() => scrollToSection("sobre")}
-            className="text-muted-foreground hover:text-foreground"
-          >
+          <Button variant="ghost" onClick={() => scrollToSection("sobre")}>
             SOBRE
           </Button>
-          <Button
-            variant="ghost"
-            onClick={() => scrollToSection("projetos")}
-            className="text-muted-foreground hover:text-foreground"
-          >
+          <Button variant="ghost" onClick={() => scrollToSection("projetos")}>
             PROJETOS
           </Button>
-          <Button
-            variant="ghost"
-            onClick={() => scrollToSection("contato")}
-            className="text-muted-foreground hover:text-foreground"
-          >
+          <Button variant="ghost" onClick={() => scrollToSection("contato")}>
             CONTATO
           </Button>
         </nav>
 
-{/* Social icons */}
-        <div className="flex items-center gap-2">
-          <a
-            href="https://github.com/gicarolinedev"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="hover:opacity-90"
-          >
-            <img src="/github.png" alt="GitHub" width="35" height="35" />
+        {/* SOCIAL DESKTOP */}
+        <div className="hidden md:flex items-center gap-2">
+          <a href="https://github.com/gicarolinedev" target="_blank">
+            <img src="/github.png" width="35" height="35" />
           </a>
-
-          <a
-            href="https://www.linkedin.com/in/giovanna-caroline-11875b2b8/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="hover:opacity-90"
-          >
-            <img src="/linkedin.png" alt="LinkedIn" width="35" height="35" />
+          <a href="https://www.linkedin.com/in/giovanna-caroline-11875b2b8/" target="_blank">
+            <img src="/linkedin.png" width="35" height="35" />
           </a>
-
-          <a
-            href="https://medium.com/@gicarolinecstd"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Medium"
-            className="hover:opacity-90"
-          >
-            <img src="/medium.png" alt="Medium" width="20" height="20" />
+          <a href="https://medium.com/@gicarolinecstd" target="_blank">
+            <img src="/medium.png" width="20" height="20" />
           </a>
         </div>
+
+        {/* MENU HAMBÚRGUER (MOBILE) */}
+        <button className="md:hidden" onClick={() => setOpen(!open)}>
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+
+      {/* MENU MOBILE */}
+      {open && (
+        <div className="md:hidden bg-background border-t border-border px-6 py-4 flex flex-col gap-4 text-lg font-serif">
+          <button onClick={() => scrollToSection("home")}>HOME</button>
+          <button onClick={() => scrollToSection("sobre")}>SOBRE</button>
+          <button onClick={() => scrollToSection("projetos")}>PROJETOS</button>
+          <button onClick={() => scrollToSection("contato")}>CONTATO</button>
+
+          <div className="flex gap-4 mt-2">
+            <a href="https://github.com/gicarolinedev" target="_blank">
+              <img src="/github.png" width="32" />
+            </a>
+            <a href="https://www.linkedin.com/in/giovanna-caroline-11875b2b8/" target="_blank">
+              <img src="/linkedin.png" width="32" />
+            </a>
+            <a href="https://medium.com/@gicarolinecstd" target="_blank">
+              <img src="/medium.png" width="18" />
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
