@@ -70,7 +70,7 @@ const Services = () => {
           </div>
 
           {/* DESCRIÇÃO  */}
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8 font-blacker">
+          <p className="font-serif text-center text-muted-foreground max-w-2xl mx-auto mb-8 font-blacker">
             Designer e desenvolvedora que transforma ideias em experiências digitais. Trabalho com interfaces,
             branding e conteúdo com foco em impacto social.
           </p>
