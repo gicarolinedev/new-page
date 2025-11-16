@@ -47,7 +47,7 @@ const Header = () => {
           <a href="https://medium.com/@gicarolinecstd" target="_blank">
             <img src="/medium.png" width="20" height="20" />
           </a>
-          <a href="https://www.behance.net/seu-usuario" target="_blank">
+          <a href="https://www.behance.net/gicarolinedev" target="_blank">
             <img src="/behance.png" width="35" height="35" />
           </a>
         </div>
