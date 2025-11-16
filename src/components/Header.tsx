@@ -47,6 +47,9 @@ const Header = () => {
           <a href="https://medium.com/@gicarolinecstd" target="_blank">
             <img src="/medium.png" width="20" height="20" />
           </a>
+          <a href="https://www.behance.net/seu-usuario" target="_blank">
+            <img src="/behance.png" width="35" height="35" />
+          </a>
         </div>
 
         {/* MENU HAMBÚRGUER (MOBILE) */}
@@ -72,6 +75,9 @@ const Header = () => {
             </a>
             <a href="https://medium.com/@gicarolinecstd" target="_blank">
               <img src="/medium.png" width="18" />
+            </a>
+            <a href="https://www.behance.net/gicarolinedev" target="_blank">
+              <img src="/behance.png" width="32" />
             </a>
           </div>
         </div>
