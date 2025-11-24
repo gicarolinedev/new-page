@@ -27,10 +27,10 @@ const Portfolio = () => {
   const designProjects = [
     { image: project1, category: "Photoshoot", title: "Ensaio Fotográfico para AFFRONTÉ" },
     { image: project2, category: "Social Media", title: "Publicidade Fictícia Natura EKOS com IA + Photoshop" },
-    { image: project3, category: "Templates", title: "Publicidade Fictícia para RHODE com IA + Photoshop" },
+    { image: project3, category: "Social Media", title: "Publicidade Fictícia para RHODE com IA + Photoshop" },
     { image: project4, category: "Social Media", title: "Publicidade Fictícia Sallve om IA + Photoshop" },
     { image: project5, category: "Social Media", title: "Social Media Para Trancistas" },
-    { image: project6, category: "Templates", title: "Product Packaging" },
+    { image: project6, category: "", title: "Product Packaging" },
     { image: logotip1, category: "Logotipos", title: "Logotipo para AFFRONTÉ" },
   ];
 
