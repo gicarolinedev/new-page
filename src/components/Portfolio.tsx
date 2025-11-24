@@ -30,14 +30,14 @@ const Portfolio = () => {
     { image: project3, category: "Social Media", title: "Publicidade Fictícia para RHODE com IA + Photoshop" },
     { image: project4, category: "Social Media", title: "Publicidade Fictícia Sallve om IA + Photoshop" },
     { image: project5, category: "Social Media", title: "Social Media Para Trancistas" },
-    { image: project6, category: "", title: "Product Packaging" },
+    { image: project6, category: "e", title: "Product Packaging" },
     { image: logotip1, category: "Logotipos", title: "Logotipo para AFFRONTÉ" },
   ];
 
   // PROJETOS DE PROGRAMAÇÃO
   const devProjects = [
     { image: dev1, category: "Frontend", title: "Landing Page Moderna" },
-    { image: dev2, category: "Backend", title: "Sistema de Gestão Completo" },
+    { image: dev2, category: "Backend", title: "ChatBot IA" },
     { image: dev3, category: "Frontend", title: "App de Tarefas em React Native" },
   ];
 
