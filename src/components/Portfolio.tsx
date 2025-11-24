@@ -14,6 +14,8 @@ import project3 from "@/assets/project3.jpg";
 import project4 from "@/assets/project4.jpg";
 import project5 from "@/assets/project5.jpg";
 import project6 from "@/assets/project6.jpg";
+import logotip1 from "@/assets/logotip1.png";
+
 
 // IMAGENS DE PROGRAMAÇÃO
 import dev1 from "@/assets/dev1.jpg";
@@ -23,12 +25,13 @@ import dev3 from "@/assets/dev3.jpg";
 const Portfolio = () => {
   // PROJETOS DE DESIGN
   const designProjects = [
-    { image: project1, category: "Photoshoot", title: "Ensaio Fotográfico" },
-    { image: project2, category: "Social Media", title: "Publicidade Fictícia Natura EKOS" },
-    { image: project3, category: "Templates", title: "Flyer Fictício Para Trancistas" },
-    { image: project4, category: "Social Media", title: "Publicidade Fictícia Sallve" },
-    { image: project5, category: "Logotipos", title: "Content Design" },
+    { image: project1, category: "Photoshoot", title: "Ensaio Fotográfico para AFFRONTÉ" },
+    { image: project2, category: "Social Media", title: "Publicidade Fictícia Natura EKOS com IA + Photoshop" },
+    { image: project3, category: "Templates", title: "Publicidade Fictícia para RHODE com IA + Photoshop" },
+    { image: project4, category: "Social Media", title: "Publicidade Fictícia Sallve om IA + Photoshop" },
+    { image: project5, category: "Social Media", title: "Social Media Para Trancistas" },
     { image: project6, category: "Templates", title: "Product Packaging" },
+    { image: logotip1, category: "Logotipos", title: "Logotipo para AFFRONTÉ" },
   ];
 
   // PROJETOS DE PROGRAMAÇÃO
