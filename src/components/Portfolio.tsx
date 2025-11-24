@@ -23,55 +23,19 @@ import dev3 from "@/assets/dev3.jpg";
 const Portfolio = () => {
   // PROJETOS DE DESIGN
   const designProjects = [
-    {
-      image: project1,
-      category: "BRANDING & PHOTOSHOOT",
-      title: "Ensaio Fotográfico",
-    },
-    {
-      image: project2,
-      category: "IA CREATION DESIGN & PUBLICITY",
-      title: "Publicidade Fictítia para Natura EKOS com IA + Photoshop",
-    },
-    {
-      image: project3,
-      category: "DESIGN & PHOTOSHOP",
-      title: "Flyer Fictício Para Trancistas Com Photoshop",
-    },
-    {
-      image: project4,
-      category: "IA CREATION DESIGN & PUBLICITY",
-      title: "Publicidade Fictícia para Sallve",
-    },
-    {
-      image: project5,
-      category: "CREATIVE",
-      title: "Content Design",
-    },
-    {
-      image: project6,
-      category: "CONTENT",
-      title: "Product Packaging",
-    },
+    { image: project1, category: "Photoshoot", title: "Ensaio Fotográfico" },
+    { image: project2, category: "Social Media", title: "Publicidade Fictícia Natura EKOS" },
+    { image: project3, category: "Templates", title: "Flyer Fictício Para Trancistas" },
+    { image: project4, category: "Social Media", title: "Publicidade Fictícia Sallve" },
+    { image: project5, category: "Logotipos", title: "Content Design" },
+    { image: project6, category: "Templates", title: "Product Packaging" },
   ];
 
   // PROJETOS DE PROGRAMAÇÃO
   const devProjects = [
-    {
-      image: dev1,
-      category: "FRONTEND DEVELOPMENT",
-      title: "Landing Page Moderna",
-    },
-    {
-      image: dev2,
-      category: "FULLSTACK",
-      title: "Sistema de Gestão Completo",
-    },
-    {
-      image: dev3,
-      category: "MOBILE",
-      title: "App de Tarefas em React Native",
-    },
+    { image: dev1, category: "Frontend", title: "Landing Page Moderna" },
+    { image: dev2, category: "Backend", title: "Sistema de Gestão Completo" },
+    { image: dev3, category: "Frontend", title: "App de Tarefas em React Native" },
   ];
 
   return (
@@ -86,26 +50,58 @@ const Portfolio = () => {
           <div className="w-24 h-1 bg-primary mx-auto"></div>
         </div>
 
-        {/* ABAS */}
+        {/* ABAS PRINCIPAIS */}
         <Tabs defaultValue="design" className="w-full">
 
           <TabsList className="mx-auto flex justify-center mb-10 gap-4">
-            <TabsTrigger value="design" className="px-6 py-2 text-sm">
-              DESIGN
-            </TabsTrigger>
-            <TabsTrigger value="dev" className="px-6 py-2 text-sm">
-              PROGRAMAÇÃO
-            </TabsTrigger>
+            <TabsTrigger value="design" className="px-6 py-2 text-sm">DESIGN</TabsTrigger>
+            <TabsTrigger value="dev" className="px-6 py-2 text-sm">PROGRAMAÇÃO</TabsTrigger>
           </TabsList>
 
           {/* --- ABA: DESIGN --- */}
           <TabsContent value="design">
-            <ProjectCarousel projects={designProjects} />
+            <Tabs defaultValue="all" className="mb-6">
+
+              {/* Sub-abas Design */}
+              <TabsList className="flex justify-center gap-4 mb-6">
+                <TabsTrigger value="all">Todos</TabsTrigger>
+                <TabsTrigger value="Logotipos">Logotipos</TabsTrigger>
+                <TabsTrigger value="Social Media">Social Media</TabsTrigger>
+                <TabsTrigger value="Templates">Templates</TabsTrigger>
+                <TabsTrigger value="Photoshoot">Photoshoot</TabsTrigger>
+              </TabsList>
+
+              {["all", "Logotipos", "Social Media", "Templates", "Photoshoot"].map((filter) => (
+                <TabsContent key={filter} value={filter}>
+                  <ProjectCarousel
+                    projects={filter === "all" ? designProjects : designProjects.filter(p => p.category === filter)}
+                  />
+                </TabsContent>
+              ))}
+
+            </Tabs>
           </TabsContent>
 
           {/* --- ABA: PROGRAMAÇÃO --- */}
           <TabsContent value="dev">
-            <ProjectCarousel projects={devProjects} />
+            <Tabs defaultValue="all" className="mb-6">
+
+              {/* Sub-abas Programação */}
+              <TabsList className="flex justify-center gap-4 mb-6">
+                <TabsTrigger value="all">Todos</TabsTrigger>
+                <TabsTrigger value="Frontend">Frontend</TabsTrigger>
+                <TabsTrigger value="Backend">Backend</TabsTrigger>
+              </TabsList>
+
+              {["all", "Frontend", "Backend"].map((filter) => (
+                <TabsContent key={filter} value={filter}>
+                  <ProjectCarousel
+                    projects={filter === "all" ? devProjects : devProjects.filter(p => p.category === filter)}
+                  />
+                </TabsContent>
+              ))}
+
+            </Tabs>
           </TabsContent>
 
         </Tabs>
@@ -114,6 +110,7 @@ const Portfolio = () => {
   );
 };
 
+// CARROSSEL DE PROJETOS
 const ProjectCarousel = ({ projects }: { projects: any[] }) => {
   return (
     <div className="relative max-w-7xl mx-auto">
@@ -139,6 +136,7 @@ const ProjectCarousel = ({ projects }: { projects: any[] }) => {
   );
 };
 
+// CARTÃO DE PROJETO
 const ProjectCard = ({
   image,
   category,
